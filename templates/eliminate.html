@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Racket Data</title>
+  <style>
+    /* Center container */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Make container full height of viewport */
+    }
+
+    /* Input field styles */
+    input {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    /* Button styles */
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #f44336; /* Red color for delete action */
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #d32f2f; /* Darker red on hover */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <form id="deleteForm">
+    <label for="racketId">Racket ID to Delete:</label><br>
+    <input type="text" id="racketId" name="racketId" required><br><br>
+
+    <button type="submit">Delete Racket</button>
+  </form>
+</div>
+
+<!-- Add your JavaScript here if needed -->
+<script>
+  // JavaScript code can be added here to handle form submission or other interactions
+  document.getElementById("deleteForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get racket ID to delete
+    var racketId = document.getElementById("racketId").value;
+
+    // Here you can implement the logic to delete the racket data with the given ID
+    // For demonstration purposes, let's just log the ID to the console
+    console.log("Deleting Racket with ID: " + racketId);
+
+    // After performing delete operation, you can redirect the user to another page if needed
+    // window.location.href = "another_page.html";
+  });
+</script>
+
+</body>
+</html>

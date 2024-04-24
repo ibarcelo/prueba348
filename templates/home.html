@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Management</title>
+  <title>Data Management Home</title>
   <style>
     /* Center container */
     .container {
@@ -32,34 +32,11 @@
 <body>
 
 <div class="container">
-  <button id="insertBtn">Insert Data</button>
-  <button id="displayBtn">Display Data</button>
-  <button id="editBtn">Edit Data</button>
-  <button id="eliminateBtn">Eliminate Data</button>
+  <a href="/insert"><button>Insert Data</button></a>
+  <a href="/display"><button>Display Data</button></a>
+  <a href="/edit"><button>Edit Data</button></a>
+  <a href="/eliminate"><button>Eliminate Data</button></a>
 </div>
 
-<!-- Add your JavaScript here if needed -->
-<script>
-  // JavaScript code can be added here to handle button clicks or other interactions
-  document.getElementById("insertBtn").addEventListener("click", function() {
-    // Redirect to insert.html
-    window.location.href = "insert.html";
-  });
-
-  document.getElementById("displayBtn").addEventListener("click", function() {
-    // Redirect to display.html
-    window.location.href = "display.html";
-  });
-
-  document.getElementById("editBtn").addEventListener("click", function() {
-    // Redirect to edit.html
-    window.location.href = "edit.html";
-  });
-
-  document.getElementById("eliminateBtn").addEventListener("click", function() {
-    // Redirect to eliminate.html
-    window.location.href = "eliminate.html";
-  });
-</script>
 </body>
 </html>

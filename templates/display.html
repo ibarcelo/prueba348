@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Racket Data</title>
+  <style>
+    /* Center container */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Make container full height of viewport */
+    }
+
+    /* Input field styles */
+    select {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    /* Button styles */
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <form id="displayForm">
+    <label for="characteristic">Select Characteristic:</label><br>
+    <select id="characteristic" name="characteristic" required>
+      <option value="name">Racket Name</option>
+      <option value="weight">Racket Weight</option>
+      <option value="price">Racket Price</option>
+      <option value="headSize">Racket Head Size</option>
+      <!-- Add more options for other characteristics if needed -->
+    </select><br><br>
+
+    <button type="submit">Display Data</button>
+  </form>
+</div>
+
+<!-- Add your JavaScript here if needed -->
+<script>
+  // JavaScript code can be added here to handle form submission or other interactions
+  document.getElementById("displayForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get selected characteristic
+    var characteristic = document.getElementById("characteristic").value;
+
+    // Here you can implement the logic to display the selected characteristic of the racket data
+    // For demonstration purposes, let's just log the selected characteristic to the console
+    console.log("Displaying Racket Data for Characteristic: " + characteristic);
+  });
+</script>
+
+</body>
+</html>

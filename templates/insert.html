@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert Racket Data</title>
+  <style>
+    /* Center container */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Make container full height of viewport */
+    }
+
+    /* Input field styles */
+    input {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    /* Button styles */
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <form id="racketForm">
+    <label for="racketName">Racket Name:</label><br>
+    <input type="text" id="racketName" name="racketName" required><br>
+
+    <label for="racketWeight">Racket Weight (grams):</label><br>
+    <input type="number" id="racketWeight" name="racketWeight" required><br>
+
+    <label for="racketPrice">Racket Price:</label><br>
+    <input type="number" id="racketPrice" name="racketPrice" required><br>
+
+    <label for="racketHeadSize">Racket Head Size (sq. inches):</label><br>
+    <input type="number" id="racketHeadSize" name="racketHeadSize" required><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<!-- Add your JavaScript here if needed -->
+<script>
+  // JavaScript code can be added here to handle form submission or other interactions
+  document.getElementById("racketForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get form values
+    var racketName = document.getElementById("racketName").value;
+    var racketWeight = document.getElementById("racketWeight").value;
+    var racketPrice = document.getElementById("racketPrice").value;
+    var racketHeadSize = document.getElementById("racketHeadSize").value;
+
+    // Here you can process the form data, such as sending it to a server or storing it locally
+    // For demonstration purposes, let's just log the values to the console
+    console.log("Racket Name: " + racketName);
+    console.log("Racket Weight: " + racketWeight + " grams");
+    console.log("Racket Price: $" + racketPrice);
+    console.log("Racket Head Size: " + racketHeadSize + " sq. inches");
+
+    // You can also redirect the user to another page after form submission if needed
+    // window.location.href = "another_page.html";
+  });
+</script>
+
+</body>
+</html>

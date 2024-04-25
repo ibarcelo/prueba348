@@ -32,13 +32,25 @@
       display: block;
     }
 
-    select {
+    select, input[type="text"], input[type="number"] {
       padding: 10px;
       margin-bottom: 20px;
       font-size: 16px;
       border-radius: 5px;
       border: 1px solid #ccc;
       width: 100%;
+    }
+
+    .price-input {
+      display: none; /* Hide price inputs by default */
+    }
+
+    .price-input label {
+      margin-right: 10px;
+    }
+
+    .price-input input {
+      margin-right: 10px;
     }
 
     button {
@@ -64,7 +76,7 @@
     <h2>Select Characteristic to Display</h2>
     <form id="displayForm">
       <label for="characteristic">Characteristic:</label><br>
-      <select id="characteristic" name="characteristic" required>
+      <select id="characteristic" name="characteristic" required onchange="updateInputField()">
         <option value="brand">Brand</option>
         <option value="model">Model</option>
         <option value="weight">Weight</option>
@@ -72,23 +84,49 @@
         <option value="head_size">Head Size</option>
       </select><br>
 
-      <button type="submit">Display Raquets</button>
+      <div class="value-input">
+        <label for="value">Value:</label>
+        <input type="text" id="value" name="value" placeholder="Enter Value" required>
+      </div><br>
+
+      <div class="price-input">
+        <label for="minPrice">Minimum Price:</label>
+        <input type="number" id="minPrice" name="minPrice" placeholder="Minimum Price" min="0" step="any">
+        <label for="maxPrice">Maximum Price:</label>
+        <input type="number" id="maxPrice" name="maxPrice" placeholder="Maximum Price" min="0" step="any">
+      </div><br>
+
+      <button type="submit">Display Rackets</button>
     </form>
   </div>
 </div>
 
-<!-- Add your JavaScript here if needed -->
 <script>
-  // JavaScript code can be added here to handle form submission or other interactions
+  function updateInputField() {
+    var characteristicSelect = document.getElementById("characteristic");
+    var valueInput = document.querySelector(".value-input");
+    var priceInput = document.querySelector(".price-input");
+
+    // If "Price" is selected, show the price inputs and hide the value input; otherwise, show the value input and hide the price inputs
+    if (characteristicSelect.value === "price") {
+      valueInput.style.display = "none";
+      priceInput.style.display = "block";
+    } else {
+      valueInput.style.display = "block";
+      priceInput.style.display = "none";
+    }
+  }
+
+  // Prevent form submission for demonstration
   document.getElementById("displayForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+    event.preventDefault();
 
-    // Get selected characteristic
     var characteristic = document.getElementById("characteristic").value;
+    var value = document.getElementById("value").value;
+    var minPrice = document.getElementById("minPrice").value;
+    var maxPrice = document.getElementById("maxPrice").value;
 
-    // Here you can implement the logic to display the selected characteristic of the racket data
-    // For demonstration purposes, let's just log the selected characteristic to the console
-    console.log("Displaying Racket Data for Characteristic: " + characteristic);
+    console.log("Displaying Racket Data for Characteristic: " + characteristic + ", Value: " + value + ", Minimum Price: " + minPrice + ", Maximum Price: " + maxPrice);
   });
 </script>
 

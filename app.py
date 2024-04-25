@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from database import engine, load_raquets_from_db
 from sqlalchemy import text
 
@@ -26,6 +26,7 @@ def eliminate():
 @app.route('/display')
 def display():
    return render_template('display.html')
+
 
 print(__name__)
 if __name__ == '__main__':

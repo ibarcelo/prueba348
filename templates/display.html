@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Display Racket Data</title>
   <style>
-    /* Center container */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
     .container {
       display: flex;
       justify-content: center;
@@ -13,26 +19,39 @@
       height: 100vh; /* Make container full height of viewport */
     }
 
-    /* Input field styles */
+    .form-container {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+
     select {
       padding: 10px;
-      margin: 5px;
+      margin-bottom: 20px;
       font-size: 16px;
       border-radius: 5px;
       border: 1px solid #ccc;
+      width: 100%;
     }
 
-    /* Button styles */
     button {
       padding: 10px 20px;
-      margin: 5px;
       font-size: 16px;
       cursor: pointer;
       background-color: #4CAF50;
       color: white;
       border: none;
       border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
       background-color: #45a049;
     }
@@ -41,18 +60,21 @@
 <body>
 
 <div class="container">
-  <form id="displayForm">
-    <label for="characteristic">Select Characteristic:</label><br>
-    <select id="characteristic" name="characteristic" required>
-      <option value="name">Racket Name</option>
-      <option value="weight">Racket Weight</option>
-      <option value="price">Racket Price</option>
-      <option value="headSize">Racket Head Size</option>
-      <!-- Add more options for other characteristics if needed -->
-    </select><br><br>
+  <div class="form-container">
+    <h2>Select Characteristic to Display</h2>
+    <form id="displayForm">
+      <label for="characteristic">Characteristic:</label><br>
+      <select id="characteristic" name="characteristic" required>
+        <option value="brand">Brand</option>
+        <option value="model">Model</option>
+        <option value="weight">Weight</option>
+        <option value="price">Price</option>
+        <option value="head_size">Head Size</option>
+      </select><br>
 
-    <button type="submit">Display Data</button>
-  </form>
+      <button type="submit">Display Raquets</button>
+    </form>
+  </div>
 </div>
 
 <!-- Add your JavaScript here if needed -->

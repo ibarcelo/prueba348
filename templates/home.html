@@ -3,27 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Management Home</title>
+  <title>Home</title>
   <style>
-    /* Center container */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
     .container {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh; /* Make container full height of viewport */
+      height: 100vh;
     }
 
-    /* Button styles */
+    .buttons-container {
+      text-align: center;
+    }
+
     button {
-      padding: 10px 20px;
-      margin: 5px;
-      font-size: 16px;
+      padding: 15px 30px;
+      font-size: 18px;
       cursor: pointer;
       background-color: #4CAF50;
       color: white;
       border: none;
       border-radius: 5px;
+      transition: background-color 0.3s ease;
+      margin: 10px;
     }
+
     button:hover {
       background-color: #45a049;
     }
@@ -32,10 +43,13 @@
 <body>
 
 <div class="container">
-  <a href="/insert"><button>Insert Data</button></a>
-  <a href="/display"><button>Display Data</button></a>
-  <a href="/edit"><button>Edit Data</button></a>
-  <a href="/eliminate"><button>Eliminate Data</button></a>
+  <div class="buttons-container">
+    <h1>Welcome to the Racket Management System</h1>
+    <button onclick="location.href='insert.html'">Insert a new raquet</button>
+    <button onclick="location.href='display.html'">Display raquets</button>
+    <button onclick="location.href='edit.html'">Edit raquets</button>
+    <button onclick="location.href='eliminate.html'">Eliminate raquets</button>
+  </div>
 </div>
 
 </body>

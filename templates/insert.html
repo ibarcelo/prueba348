@@ -60,14 +60,33 @@
     button:hover {
       background-color: #45a049;
     }
+  <style>
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50; /* Green */
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #45a049; /* Darker green */
+    }
+  </style>
   </style>
 </head>
 <body>
 
 <div class="container">
   <div class="form-container">
+    <a href="/home" class="button">Home</a>
     <h2>Insert Racket Data</h2>
-    <form id="racketForm">
+    <form method='post' action='/add_raquet'>
       <label for="brand">Brand:</label>
       <input type="text" id="brand" name="brand" required><br>
 
@@ -80,8 +99,8 @@
       <label for="price">Price:</label>
       <input type="number" id="price" name="price" required><br>
 
-      <label for="headSize">Head Size (sq. inches):</label>
-      <input type="number" id="headSize" name="headSize" required><br><br>
+      <label for="head_size">Head Size (sq. inches):</label>
+      <input type="number" id="head_size" name="head_size" required><br><br>
 
       <button type="submit">Submit</button>
     </form>

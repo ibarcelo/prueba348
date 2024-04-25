@@ -68,13 +68,32 @@
       background-color: #45a049;
     }
   </style>
+  <style>
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  .button:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  </style>
 </head>
 <body>
 
 <div class="container">
   <div class="form-container">
+    <a href="/home" class="button">Home</a>
     <h2>Select Characteristic to Display</h2>
-    <form id="displayForm">
+    <form method = "post" action = '/display_raquet' id="displayForm">
       <label for="characteristic">Characteristic:</label><br>
       <select id="characteristic" name="characteristic" required onchange="updateInputField()">
         <option value="brand">Brand</option>

@@ -56,26 +56,15 @@ def edit_raquet():
   editRaquet(characteristic, newValue, id)
   return render_template('edit.html')
 
-@app.route('/display_raquet', methods=['POST'])
-def display_raquet():
-    characteristic = request.form['characteristic']
-    if characteristic == 'price':
-        min_price = request.form['min_price']
-        max_price = request.form['max_price']
-        value = request.form['value']
-        disp_raquets(characteristic, value, min_price, max_price)
-    else:
-        value = request.form['value']
-        min_price = request.form['min_price']
-        max_price = request.form['max_price']
-        disp_raquets(characteristic, value, min_price, max_price)
-    return render_template('display.html')
-
     
-@app.route('/displayed', methods=['POST'])
+@app.route('/displayed', methods=['get'])
 def displayed():
-  data=request.form
-  return jsonify(data)
+  characteristic = request.args.get('characteristic')
+  value = request.args.get('value')
+  min_price = request.args.get('min_price')
+  max_price = request.args.get('max_price')
+  raquets = disp_raquets(characteristic, value, min_price, max_price)
+  return render_template('display.html', raquets=raquets)
 
 print(__name__)
 if __name__ == '__main__':

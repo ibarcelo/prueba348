@@ -1,34 +1,15 @@
 from flask import Flask, render_template
+from database import engine, load_raquets_from_db
+from sqlalchemy import text
 
 app = Flask(__name__)
 
-RAQUETS = [
-  {
-    'id': 1,
-    'name': 'Wilson Blade 98',
-    'price': 200,
-    'head size': '640',
-    'weight': '300g'
-  },
-  {
-    'id': 2,
-    'name': 'Head Radical mp',
-    'price': 250,
-    'head size': '630',
-    'weight': '310g'
-  },
-  {
-    'id': 3,
-    'name': 'Babolat aero',
-    'price': 220,
-    'head size': '660',
-    'weight': '305g'
-  }
-]
+  
 
 @app.route('/')
 def hello_world():
-  return render_template('home.html', r=RAQUETS)
+  raquets = load_raquets_from_db()
+  return render_template('home.html' , raquets=raquets)
 
 @app.route('/insert')
 def insert():

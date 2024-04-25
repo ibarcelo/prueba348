@@ -66,10 +66,13 @@ def editRaquet(characteristic, newValue, id):
 def disp_raquets(characteristic, value, min_price, max_price):
   with engine.connect() as conn:
       if characteristic == 'price':
-          result = conn.execute(text("SELECT * FROM raquets WHERE price BETWEEN :min_price AND :max_price"), 
+          result = conn.execute(text("SELECT * FROM raquets WHERE price < :min_price AND price > :max_price"), 
             {"min_price": min_price,
              "max_price": max_price}
             )
+          conn.commit()
+      elif characteristic == 'everything':
+          result = conn.execute(text("SELECT * FROM raquets"))
           conn.commit()
       else:
           result = conn.execute(text("SELECT * FROM raquets WHERE :characteristic = :value"),
